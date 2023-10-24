@@ -152,7 +152,7 @@ export function NetworkGraph({ serverClicked }: Props) {
         .append("svg")
           // .attr("width", width)
           // .attr("height", height)
-        .attr("viewBox", `0 0 ${width} ${height}`)
+        .attr("viewbox", `0 0 ${width} ${height}`)
         .append("g")
 
       const link = svg
