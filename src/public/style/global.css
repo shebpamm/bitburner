@@ -4,3 +4,8 @@ body {
   font-family: "Lucida Console", "Lucida Sans Unicode", "Fira Mono", Consolas, "Courier New", Courier, monospace, "Times New Roman";
   overflow: hidden;
 }
+
+#bb-ui-ext-root {
+  width: 100%;
+  height: 100%;
+}

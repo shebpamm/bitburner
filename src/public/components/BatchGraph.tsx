@@ -1,6 +1,8 @@
 import React from "react";
 import { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
+import Timeline from '../lib/Timeline';
+import '@/style/BatchGraph.css';
 
 type Props = {};
 
@@ -10,7 +12,7 @@ function receiveEvent(event: any) {
     return;
   }
 
-  console.log(event);
+  // console.log(event);
 }
 
 export function BatchGraph({}: Props) {
@@ -21,28 +23,14 @@ export function BatchGraph({}: Props) {
   });
 
   useEffect(() => {
-    const width = 600;
-    const height = 400;
-    const margin = { top: 10, bottom: 10, left: 10, right: 10 };
+    let container = document.getElementById("batch-graph-svg-wrapper");
+    if (container === null) {
+      console.log("Could not find container");
+      return;
+    }
 
-    document.getElementById("batch-graph-svg-wrapper")!.innerHTML = "";
+    let timeline = new Timeline(container);
 
-    const svg = d3
-      .select("#batch-graph-svg-wrapper")
-      .append("svg")
-      // .attr("width", width)
-      // .attr("height", height)
-      .attr("viewbox", `0 0 ${width} ${height}`)
-      .append("g");
-
-    // container for focus area
-    const container = svg
-      .insert("g", "rect.mouse-catch")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-      .attr("clip-path", "url(#clip)");
-
-    const serieContainer = container.append("g");
-    const annotationsContainer = container.append("g");
   });
 
   return (
